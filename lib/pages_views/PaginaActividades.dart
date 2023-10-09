@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages_views/PaginaActividades.dart';
-import 'package:flutter_application_1/pages_views/PaginaDocumentos.dart';
 import 'package:flutter_application_1/pages_views/PrincipalContactos.dart';
+import 'package:flutter_application_1/pages_views/PrincipalWhatsApp.dart';
+import 'package:flutter_application_1/pages_views/PaginaDocumentos.dart';
 
-class PrincipalWhatsApp extends StatelessWidget {
-  const PrincipalWhatsApp({super.key});
+class PaginaActividades extends StatelessWidget {
+  const PaginaActividades({super.key});
 
   get screenHeight => null;
   get screenWidth => null;
@@ -66,29 +66,29 @@ class PrincipalWhatsApp extends StatelessWidget {
                   // Botón 2
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/watsapp1.png',
+                      'lib/icons/watsapp2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
                     onPressed: () {
                       // Acción para el botón 2
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PrincipalWhatsApp()),
+                      );
                     },
                   ),
                   // Botón 3
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/seg2.png',
+                      'lib/icons/seg1.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     onPressed: () {
                       // Acción para el botón 3
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PaginaActividades()),
-                      );
                     },
                   ),
                   // Botón 4

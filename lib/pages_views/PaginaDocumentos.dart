@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages_views/PaginaActividades.dart';
-import 'package:flutter_application_1/pages_views/PaginaDocumentos.dart';
 import 'package:flutter_application_1/pages_views/PrincipalContactos.dart';
+import 'package:flutter_application_1/pages_views/PrincipalWhatsApp.dart';
+import 'package:flutter_application_1/pages_views/PaginaActividades.dart';
 
-class PrincipalWhatsApp extends StatelessWidget {
-  const PrincipalWhatsApp({super.key});
+class PaginaDocumentos extends StatelessWidget {
+  const PaginaDocumentos({super.key});
 
   get screenHeight => null;
   get screenWidth => null;
@@ -24,17 +24,37 @@ class PrincipalWhatsApp extends StatelessWidget {
         children: <Widget>[
           // División superior para botones de navegación
           Container(
-            color: const Color.fromARGB(
-                255, 151, 206, 251), // Color de fondo de la división superior
-            height: 80, // Altura de la división superior
-            child: const Center(),
+            color: const Color.fromARGB(255, 151, 206, 251),
+            height: 80,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                    icon: Image.asset(
+                      'lib/icons/perfil1.png',
+                      width: iconSizeButt,
+                      height: iconSizeButt,
+                    ),
+                    onPressed: () {
+                      // Acción al presionar el botón
+                    },
+                  ),
+                ],
+              ),
+            ),
           ),
           // División central para mostrar contenido
           Expanded(
             child: Container(
               color: const Color.fromARGB(
                   255, 255, 255, 255), // Color de fondo de la división central
-              child: const Center(),
+              child: const Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[],
+                ),
+              ),
             ),
           ),
           // División inferior para botones de imagen
@@ -66,13 +86,18 @@ class PrincipalWhatsApp extends StatelessWidget {
                   // Botón 2
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/watsapp1.png',
+                      'lib/icons/watsapp2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
                     onPressed: () {
                       // Acción para el botón 2
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PrincipalWhatsApp()),
+                      );
                     },
                   ),
                   // Botón 3
@@ -94,18 +119,13 @@ class PrincipalWhatsApp extends StatelessWidget {
                   // Botón 4
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/docs2.png',
+                      'lib/icons/docs1.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
                     onPressed: () {
                       // Acción para el botón 4
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PaginaDocumentos()),
-                      );
                     },
                   ),
                 ],

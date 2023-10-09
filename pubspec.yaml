@@ -68,6 +68,8 @@ flutter:
     - lib\icons\seg1.png
     - lib\icons\seg2.png
     - lib\icons\watsapp1.png
+    - lib\icons\perfil1.png
+    - lib\icons\perfil2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
