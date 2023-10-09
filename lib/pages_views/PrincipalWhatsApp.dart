@@ -14,6 +14,7 @@ class PrincipalWhatsApp extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     double iconSizeButt = screenWidth * 0.2;
+    double iconSizePerf = screenWidth * 0.133;
 
     return Scaffold(
       appBar: AppBar(
@@ -24,10 +25,25 @@ class PrincipalWhatsApp extends StatelessWidget {
         children: <Widget>[
           // División superior para botones de navegación
           Container(
-            color: const Color.fromARGB(
-                255, 151, 206, 251), // Color de fondo de la división superior
-            height: 80, // Altura de la división superior
-            child: const Center(),
+            color: const Color.fromARGB(255, 151, 206, 251),
+            height: 80,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  IconButton(
+                    icon: Image.asset(
+                      'lib/icons/perfil1.png',
+                      width: iconSizePerf,
+                      height: iconSizePerf,
+                    ),
+                    onPressed: () {
+                      // Acción al presionar el botón
+                    },
+                  ),
+                ],
+              ),
+            ),
           ),
           // División central para mostrar contenido
           Expanded(

@@ -14,6 +14,7 @@ class PaginaDocumentos extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     double iconSizeButt = screenWidth * 0.2;
+    double iconSizePerf = screenWidth * 0.133;
 
     return Scaffold(
       appBar: AppBar(
@@ -28,13 +29,13 @@ class PaginaDocumentos extends StatelessWidget {
             height: 80,
             child: Center(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   IconButton(
                     icon: Image.asset(
                       'lib/icons/perfil1.png',
-                      width: iconSizeButt,
-                      height: iconSizeButt,
+                      width: iconSizePerf,
+                      height: iconSizePerf,
                     ),
                     onPressed: () {
                       // Acción al presionar el botón

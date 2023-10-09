@@ -60,6 +60,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - lib\icons\perfil1.png
+    - lib\icons\perfil2.png
     - lib\icons\watsapp2.png
     - lib\icons\contactos.png
     - lib\icons\contactos2.png
@@ -68,8 +70,7 @@ flutter:
     - lib\icons\seg1.png
     - lib\icons\seg2.png
     - lib\icons\watsapp1.png
-    - lib\icons\perfil1.png
-    - lib\icons\perfil2.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
