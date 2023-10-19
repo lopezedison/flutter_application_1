@@ -143,7 +143,49 @@ class PrincipalContactos extends StatelessWidget {
               ),
             ),
           ),
-
+          Positioned(
+            right: 70,
+            bottom: 300,
+            child: IconButton(
+              icon: Image.asset(
+                'assets/icons/tecladonum.png',
+                width: screenWidth * 0.2,
+                height: screenWidth * 0.2,
+              ),
+              iconSize: iconSizeButt,
+              onPressed: () {
+                // Aquí puedes mostrar un diálogo con un campo de entrada numérica
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Text('Agregar Contacto'),
+                      content: TextField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) {},
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            // Aquí puedes guardar el número de teléfono
+                            // y añadirlo a la lista de contactos
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Guardar'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Cancelar'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+          ),
           // División inferior para botones de imagen
           Container(
             color: const Color.fromARGB(
@@ -220,6 +262,9 @@ class PrincipalContactos extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
       ),
     );
   }
