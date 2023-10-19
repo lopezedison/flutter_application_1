@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages_views/PrincipalContactos.dart';
-import 'package:flutter_application_1/pages_views/PrincipalWhatsApp.dart';
-import 'package:flutter_application_1/pages_views/PaginaDocumentos.dart';
+// ignore_for_file: file_names
 
-class PaginaActividades extends StatelessWidget {
-  const PaginaActividades({super.key});
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
+import 'package:flutter_application_1/presentation/screens/paginaDocumentos.dart';
+import 'package:flutter_application_1/presentation/screens/principalContactos.dart';
+
+class PrincipalWhatsApp extends StatelessWidget {
+  const PrincipalWhatsApp({super.key});
 
   get screenHeight => null;
   get screenWidth => null;
@@ -33,7 +35,7 @@ class PaginaActividades extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/perfil1.png',
+                      'assets/icons/perfil1.png',
                       width: iconSizePerf,
                       height: iconSizePerf,
                     ),
@@ -65,7 +67,7 @@ class PaginaActividades extends StatelessWidget {
                   // Botón 1
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/contactos2.png',
+                      'assets/icons/contactos2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
@@ -82,35 +84,35 @@ class PaginaActividades extends StatelessWidget {
                   // Botón 2
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/watsapp2.png',
+                      'assets/icons/watsapp1.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
                     onPressed: () {
                       // Acción para el botón 2
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PrincipalWhatsApp()),
-                      );
                     },
                   ),
                   // Botón 3
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/seg1.png',
+                      'assets/icons/seg2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     onPressed: () {
                       // Acción para el botón 3
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PaginaActividades()),
+                      );
                     },
                   ),
                   // Botón 4
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/docs2.png',
+                      'assets/icons/docs2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class InfoPerfil extends StatelessWidget {
@@ -15,8 +17,8 @@ class InfoPerfil extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image.network(
-              'https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png',
+            Image.asset(
+              'assets/userphoto-icon.png', // Cambia a Image.asset
               width: 140.0,
               height: 140.0,
               fit: BoxFit.cover,

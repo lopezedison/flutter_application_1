@@ -60,16 +60,16 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib\icons\perfil1.png
-    - lib\icons\perfil2.png
-    - lib\icons\watsapp2.png
-    - lib\icons\contactos.png
-    - lib\icons\contactos2.png
-    - lib\icons\docs1.png
-    - lib\icons\docs2.png
-    - lib\icons\seg1.png
-    - lib\icons\seg2.png
-    - lib\icons\watsapp1.png
+    - assets\icons\perfil1.png
+    - assets\icons\perfil2.png
+    - assets\icons\watsapp2.png
+    - assets\icons\contactos.png
+    - assets\icons\contactos2.png
+    - assets\icons\docs1.png
+    - assets\icons\docs2.png
+    - assets\icons\seg1.png
+    - assets\icons\seg2.png
+    - assets\icons\watsapp1.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

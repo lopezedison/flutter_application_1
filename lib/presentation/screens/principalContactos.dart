@@ -1,7 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages_views/PaginaActividades.dart';
-import 'package:flutter_application_1/pages_views/PaginaDocumentos.dart';
-import 'package:flutter_application_1/pages_views/PrincipalWhatsApp.dart';
+import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
+import 'package:flutter_application_1/presentation/screens/paginaDocumentos.dart';
+import 'package:flutter_application_1/presentation/screens/principalWhatsApp.dart';
 
 class PrincipalContactos extends StatelessWidget {
   const PrincipalContactos({super.key});
@@ -33,7 +35,7 @@ class PrincipalContactos extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/perfil1.png',
+                      'assets/icons/perfil1.png',
                       width: iconSizePerf,
                       height: iconSizePerf,
                     ),
@@ -65,7 +67,7 @@ class PrincipalContactos extends StatelessWidget {
                   // Botón 1
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/contactos.png',
+                      'assets/icons/contactos.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
@@ -77,7 +79,7 @@ class PrincipalContactos extends StatelessWidget {
                   // Botón 2
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/watsapp2.png',
+                      'assets/icons/watsapp2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
@@ -94,7 +96,7 @@ class PrincipalContactos extends StatelessWidget {
                   // Botón 3
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/seg2.png',
+                      'assets/icons/seg2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
@@ -110,7 +112,7 @@ class PrincipalContactos extends StatelessWidget {
                   // Botón 4
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/docs2.png',
+                      'assets/icons/docs2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),

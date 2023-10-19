@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages_views/PaginaActividades.dart';
-import 'package:flutter_application_1/pages_views/PaginaDocumentos.dart';
-import 'package:flutter_application_1/pages_views/PrincipalContactos.dart';
+// ignore_for_file: file_names
 
-class PrincipalWhatsApp extends StatelessWidget {
-  const PrincipalWhatsApp({super.key});
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/presentation/screens/principalContactos.dart';
+import 'package:flutter_application_1/presentation/screens/principalWhatsApp.dart';
+import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
+
+class PaginaDocumentos extends StatelessWidget {
+  const PaginaDocumentos({super.key});
 
   get screenHeight => null;
   get screenWidth => null;
@@ -33,7 +35,7 @@ class PrincipalWhatsApp extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/perfil1.png',
+                      'assets/icons/perfil1.png',
                       width: iconSizePerf,
                       height: iconSizePerf,
                     ),
@@ -50,7 +52,12 @@ class PrincipalWhatsApp extends StatelessWidget {
             child: Container(
               color: const Color.fromARGB(
                   255, 255, 255, 255), // Color de fondo de la división central
-              child: const Center(),
+              child: const Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[],
+                ),
+              ),
             ),
           ),
           // División inferior para botones de imagen
@@ -65,7 +72,7 @@ class PrincipalWhatsApp extends StatelessWidget {
                   // Botón 1
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/contactos2.png',
+                      'assets/icons/contactos2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
@@ -82,19 +89,24 @@ class PrincipalWhatsApp extends StatelessWidget {
                   // Botón 2
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/watsapp1.png',
+                      'assets/icons/watsapp2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
                     onPressed: () {
                       // Acción para el botón 2
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PrincipalWhatsApp()),
+                      );
                     },
                   ),
                   // Botón 3
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/seg2.png',
+                      'assets/icons/seg2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
@@ -110,18 +122,13 @@ class PrincipalWhatsApp extends StatelessWidget {
                   // Botón 4
                   IconButton(
                     icon: Image.asset(
-                      'lib/icons/docs2.png',
+                      'assets/icons/docs1.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
                     onPressed: () {
                       // Acción para el botón 4
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PaginaDocumentos()),
-                      );
                     },
                   ),
                 ],

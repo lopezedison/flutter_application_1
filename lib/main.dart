@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages_views/InfoPerfil.dart';
-import 'package:flutter_application_1/pages_views/PrincipalContactos.dart';
+import 'package:flutter_application_1/presentation/screens/infoPerfil.dart';
+import 'package:flutter_application_1/presentation/screens/principalContactos.dart';
 
 void main() {
   runApp(const MyApp());
