@@ -16,21 +16,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(220, 221, 235, 253)),
         useMaterial3: true,
@@ -43,6 +28,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -50,6 +36,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double logoSize =
+        screenHeight * 0.25; // Tamaño del logo: 20% del alto de la pantalla
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -60,10 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image.network(
-              'https://www.creativefabrica.com/wp-content/uploads/2019/03/Monogram-NH-Logo-Design-by-Greenlines-Studios.jpg',
-              width: 200.0,
-              height: 200.0,
+            Image.asset(
+              'assets/images/logoprincipal.jpg',
+              width: logoSize,
+              height: logoSize,
               fit: BoxFit.cover,
             ),
             const Text(
@@ -75,14 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextFormField(
               decoration:
-                  const InputDecoration(labelText: "ingresa tu usuario"),
+                  const InputDecoration(labelText: "Ingresa tu usuario"),
             ),
             TextFormField(
-              decoration: const InputDecoration(labelText: "contraseña"),
+              decoration: const InputDecoration(labelText: "Contraseña"),
             ),
             const SizedBox(
                 height:
-                    20.0), // Add some spacing between TextFormField and buttons
+                    20.0), // Agrega un espacio entre los campos de texto y los botones
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[

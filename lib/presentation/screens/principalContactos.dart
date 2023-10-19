@@ -49,12 +49,101 @@ class PrincipalContactos extends StatelessWidget {
           ),
           // División central para mostrar contenido
           Expanded(
-            child: Container(
-              color: const Color.fromARGB(
-                  255, 255, 255, 255), // Color de fondo de la división central
-              child: const Center(),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Image.asset(
+                          'assets/icons/recientes.png',
+                          width: screenWidth * 0.1,
+                          height: screenWidth * 0.1,
+                        ),
+                        onPressed: () {
+                          // Acción para el botón 1
+                        },
+                      ),
+                      IconButton(
+                        icon: Image.asset(
+                          'assets/icons/libreta.png',
+                          width: screenWidth * 0.1,
+                          height: screenWidth * 0.1,
+                        ),
+                        onPressed: () {
+                          // Acción para el botón 1
+                        },
+                      ),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.blue,
+                        hintText: 'Buscar contactos',
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  const ListTile(
+                    title: Text('Contacto 1'),
+                    subtitle: Text('Número de teléfono'),
+                  ),
+                  // Resto de los elementos de la lista
+                ],
+              ),
             ),
           ),
+
           // División inferior para botones de imagen
           Container(
             color: const Color.fromARGB(
