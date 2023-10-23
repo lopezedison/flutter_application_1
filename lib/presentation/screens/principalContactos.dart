@@ -105,18 +105,43 @@ class PrincipalContactos extends StatelessWidget {
               ),
               // División central para mostrar contenido
               Expanded(
-                child: ListView(
-                    children: contactos
-                        .map((e) => ListTile(
-                            title: Text(e.name),
-                            subtitle: Text(e.phone),
-                            leading: Icon(Icons.abc),
-                            trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.arrow_right),
-                            )))
-                        .toList()),
-              ), // División inferior para botones de imagen
+                child: Column(
+                  // Utiliza un Column para combinar los widgets
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.blue,
+                        hintText: 'Buscar contactos',
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView(
+                        children: contactos
+                            .map((e) => ListTile(
+                                  title: Text(e.name),
+                                  subtitle: Text(e.phone),
+                                  leading: Icon(Icons
+                                      .abc), // Asegúrate de reemplazar 'abc' con el icono correcto.
+                                  trailing: IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(Icons.arrow_right),
+                                  ),
+                                ))
+                            .toList(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // División inferior para botones de imagen
               Container(
                 color: const Color.fromARGB(255, 255, 255,
                     255), // Color de fondo de la división inferior
