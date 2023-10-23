@@ -77,7 +77,7 @@ class PaginaActividades extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PrincipalContactos()),
+                            builder: (context) => PrincipalContactos()),
                       );
                     },
                   ),

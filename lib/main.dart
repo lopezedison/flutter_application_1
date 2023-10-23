@@ -13,15 +13,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(220, 221, 235, 253)),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(220, 221, 235, 253)),
+          useMaterial3: true,
+        ),
+        home: const Stack(
+          children: [
+            //agregar imagen de fondo
+            MyHomePage(title: 'Flutter Demo Home Page'),
+          ],
+        ));
   }
 }
 
@@ -81,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const PrincipalContactos()),
+                          builder: (context) => PrincipalContactos()),
                     );
                   },
                   child: const Text('Log In'),
