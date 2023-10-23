@@ -40,18 +40,6 @@ class PrincipalContactos extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 151, 206, 251),
         title: const Text('Contactos'),
-        actions: [
-          IconButton(
-            icon: Image.asset(
-              'assets/icons/perfil1.png',
-              width: iconSizePerf,
-              height: iconSizePerf,
-            ),
-            onPressed: () {
-              // Acción al presionar el botón
-            },
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -107,16 +95,71 @@ class PrincipalContactos extends StatelessWidget {
               // División central para mostrar contenido
               Expanded(
                 child: ListView(
-                    children: contactos
-                        .map((e) => ListTile(
-                            title: Text(e.name),
-                            subtitle: Text(e.phone),
-                            leading: Icon(Icons.abc),
-                            trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.arrow_right),
-                            )))
-                        .toList()),
+                  children: <Widget>[
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.blue,
+                          hintText: 'Buscar contactos',
+                          hintStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    const ListTile(
+                      title: Text('Contacto 1'),
+                      subtitle: Text('Número de teléfono'),
+                    ),
+                    // Resto de los elementos de la lista
+                  ],
+                ),
               ), // División inferior para botones de imagen
               Container(
                 color: const Color.fromARGB(255, 255, 255,
@@ -197,8 +240,8 @@ class PrincipalContactos extends StatelessWidget {
             ],
           ),
           Positioned(
-            right: 15,
-            bottom: 110,
+            right: 30,
+            bottom: 90,
             child: IconButton(
               icon: Image.asset(
                 'assets/icons/tecladonum.png',
