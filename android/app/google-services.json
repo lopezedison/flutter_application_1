@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "212909642288",
+    "project_id": "nexushub-fe7ba",
+    "storage_bucket": "nexushub-fe7ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212909642288:android:35f28f2b974adfcb6653f5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvlcdslhIn3Z7qgGN9HjE__EyySzqpPU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
