@@ -1,39 +1,44 @@
-// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/domain/entities/Contact.dart';
+import 'package:flutter_application_1/domain/entities/contact.dart';
 import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
 import 'package:flutter_application_1/presentation/screens/paginaDocumentos.dart';
 import 'package:flutter_application_1/presentation/screens/principalWhatsApp.dart';
 
-class PrincipalContactos extends StatelessWidget {
+// ignore: must_be_immutable
+class PrincipalContactos extends StatefulWidget {
   PrincipalContactos({super.key});
 
-  List<Contact> contactos = [
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-    new Contact("name", "phone"),
-  ];
+  @override
+  _PrincipalContactosState createState() => _PrincipalContactosState();
+}
 
-  get screenHeight => null;
-  get screenWidth => null;
+class _PrincipalContactosState extends State<PrincipalContactos> {
+  List<Contact> contactos = [];
+  double iconSizeButt = 0.0;
+  double iconSizePerf = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _cargarContactos();
+  }
+
+  Future<void> _cargarContactos() async {
+    print("Cargando contactos....");
+    await contactManager.obtenerContactosDesdeFirebase();
+    setState(() {
+      // Actualiza el estado del widget con los nuevos contactos
+      contactos = contactManager.contactos;
+    });
+    print(contactos);
+  }
 
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-
     double iconSizeButt = screenWidth * 0.2;
     double iconSizePerf = screenWidth * 0.133;
+    //_cargarContactos();
 
     return Scaffold(
       appBar: AppBar(
@@ -81,6 +86,7 @@ class PrincipalContactos extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  const Spacer(),
                   IconButton(
                     icon: Image.asset(
                       'assets/icons/recientes.png',
@@ -98,17 +104,27 @@ class PrincipalContactos extends StatelessWidget {
                       height: screenWidth * 0.1,
                     ),
                     onPressed: () {
-                      // Acción para el botón 1
+                      // Acción para el botón 2
+                    },
+                  ),
+                  SizedBox(
+                      width: screenWidth *
+                          0.28), // Agrega un espacio para centrar los primeros dos iconos
+                  IconButton(
+                    icon: const Icon(Icons.more_vert),
+                    onPressed: () {
+                      // Acción para el nuevo botón en la derecha
                     },
                   ),
                 ],
               ),
+
               // División central para mostrar contenido
               Expanded(
                 child: Column(
                   // Utiliza un Column para combinar los widgets
                   children: [
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.blue,
@@ -126,13 +142,15 @@ class PrincipalContactos extends StatelessWidget {
                       child: ListView(
                         children: contactos
                             .map((e) => ListTile(
-                                  title: Text(e.name),
-                                  subtitle: Text(e.phone),
-                                  leading: Icon(Icons
+                                  title: Text(
+                                    e.nombre,
+                                  ),
+                                  subtitle: Text(e.numero),
+                                  leading: const Icon(Icons
                                       .abc), // Asegúrate de reemplazar 'abc' con el icono correcto.
                                   trailing: IconButton(
                                     onPressed: () {},
-                                    icon: Icon(Icons.arrow_right),
+                                    icon: const Icon(Icons.arrow_right),
                                   ),
                                 ))
                             .toList(),
@@ -159,7 +177,11 @@ class PrincipalContactos extends StatelessWidget {
                         ),
                         iconSize: iconSizeButt,
                         onPressed: () {
-                          // Acción para el botón 1
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PrincipalContactos()),
+                          );
                         },
                       ),
                       // Botón 2

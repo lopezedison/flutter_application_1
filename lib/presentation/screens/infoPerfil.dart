@@ -94,10 +94,7 @@ class _InfoPerfilState extends State<InfoPerfil> {
               decoration: const InputDecoration(labelText: "Correo"),
             ),
             TextFormField(
-              decoration: const InputDecoration(labelText: "edad"),
-            ),
-            TextFormField(
-              decoration: const InputDecoration(labelText: "usuario"),
+              decoration: const InputDecoration(labelText: "Identificación"),
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: "contraseña"),
@@ -127,6 +124,7 @@ class _InfoPerfilState extends State<InfoPerfil> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }
