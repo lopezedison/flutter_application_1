@@ -19,103 +19,104 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   void $configureLifeCycle() {
-    // TODO: implement $configureLifeCycle
+    // TODOs: implement $configureLifeCycle
   }
 
   @override
   Disposer addListener(GetStateUpdate listener) {
-    // TODO: implement addListener
+    // TODOs: implement addListener
     throw UnimplementedError();
   }
 
   @override
   Disposer addListenerId(Object? key, GetStateUpdate listener) {
-    // TODO: implement addListenerId
+    // TODOs: implement addListenerId
     throw UnimplementedError();
   }
 
   @override
+  // ignore: non_constant_identifier_names
   create_user(UserEntity user) {
-    // TODO: implement create_user
+    // TODOs: implement create_user
     throw UnimplementedError();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    // TODOs: implement dispose
   }
 
   @override
   void disposeId(Object id) {
-    // TODO: implement disposeId
+    // TODOs: implement disposeId
   }
 
   @override
-  // TODO: implement hasListeners
+  // TODOs: implement hasListeners
   bool get hasListeners => throw UnimplementedError();
 
   @override
-  // TODO: implement initialized
+  // TODOs: implement initialized
   bool get initialized => throw UnimplementedError();
 
   @override
-  // TODO: implement isClosed
+  // TODOs: implement isClosed
   bool get isClosed => throw UnimplementedError();
 
   @override
-  // TODO: implement listeners
+  // TODOs: implement listeners
   int get listeners => throw UnimplementedError();
 
   @override
   void notifyChildrens() {
-    // TODO: implement notifyChildrens
+    // TODOs: implement notifyChildrens
   }
 
   @override
   void onClose() {
-    // TODO: implement onClose
+    // TODOs: implement onClose
   }
 
   @override
-  // TODO: implement onDelete
+  // TODOs: implement onDelete
   InternalFinalCallback<void> get onDelete => throw UnimplementedError();
 
   @override
   void onInit() {
-    // TODO: implement onInit
+    // TODOs: implement onInit
   }
 
   @override
   void onReady() {
-    // TODO: implement onReady
+    // TODOs: implement onReady
   }
 
   @override
-  // TODO: implement onStart
+  // TODOs: implement onStart
   InternalFinalCallback<void> get onStart => throw UnimplementedError();
 
   @override
   void refresh() {
-    // TODO: implement refresh
+    // TODOs: implement refresh
   }
 
   @override
   void refreshGroup(Object id) {
-    // TODO: implement refreshGroup
+    // TODOs: implement refreshGroup
   }
 
   @override
   void removeListener(VoidCallback listener) {
-    // TODO: implement removeListener
+    // TODOs: implement removeListener
   }
 
   @override
   void removeListenerId(Object id, VoidCallback listener) {
-    // TODO: implement removeListenerId
+    // TODOs: implement removeListenerId
   }
 
   @override
   void update([List<Object>? ids, bool condition = true]) {
-    // TODO: implement update
+    // TODOs: implement update
   }
 }

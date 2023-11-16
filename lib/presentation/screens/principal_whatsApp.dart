@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
-import 'package:flutter_application_1/presentation/screens/paginaDocumentos.dart';
-import 'package:flutter_application_1/presentation/screens/principalContactos.dart';
+import 'package:flutter_application_1/presentation/screens/pagina_actividades.dart';
+import 'package:flutter_application_1/presentation/screens/pagina_documentos.dart';
+import 'package:flutter_application_1/presentation/screens/principal_contactos.dart';
 
 class PrincipalWhatsApp extends StatelessWidget {
   const PrincipalWhatsApp({super.key});
@@ -77,7 +77,7 @@ class PrincipalWhatsApp extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PrincipalContactos()),
+                            builder: (context) => const PrincipalContactos()),
                       );
                     },
                   ),

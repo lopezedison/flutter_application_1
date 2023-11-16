@@ -29,7 +29,7 @@ class ContactManager {
       String nombre1 = doc['nombre'];
       String numero1 = doc['numero'];
       String correo1 = doc['correo'];
-      return new Contact(nombre1, numero1, correo1);
+      return Contact(nombre1, numero1, correo1);
     }).toList();
     print("Contactos obtenidos correctamente:");
     for (Contact contacto in contactos) {

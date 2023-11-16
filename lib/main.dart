@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/firebase_options.dart';
-import 'package:flutter_application_1/presentation/screens/infoPerfil.dart';
-import 'package:flutter_application_1/presentation/screens/principalContactos.dart';
+import 'package:flutter_application_1/presentation/screens/info_perfil.dart';
+import 'package:flutter_application_1/presentation/screens/principal_contactos.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => PrincipalContactos()),
+                          builder: (context) => const PrincipalContactos()),
                     );
                   },
                   child: const Text('Log In'),

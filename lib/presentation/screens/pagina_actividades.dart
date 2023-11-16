@@ -1,12 +1,12 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/presentation/screens/principalContactos.dart';
-import 'package:flutter_application_1/presentation/screens/principalWhatsApp.dart';
-import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
+import 'package:flutter_application_1/presentation/screens/principal_contactos.dart';
+import 'package:flutter_application_1/presentation/screens/principal_whatsApp.dart';
+import 'package:flutter_application_1/presentation/screens/pagina_documentos.dart';
 
-class PaginaDocumentos extends StatelessWidget {
-  const PaginaDocumentos({super.key});
+class PaginaActividades extends StatelessWidget {
+  const PaginaActividades({super.key});
 
   get screenHeight => null;
   get screenWidth => null;
@@ -52,12 +52,7 @@ class PaginaDocumentos extends StatelessWidget {
             child: Container(
               color: const Color.fromARGB(
                   255, 255, 255, 255), // Color de fondo de la división central
-              child: const Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[],
-                ),
-              ),
+              child: const Center(),
             ),
           ),
           // División inferior para botones de imagen
@@ -82,7 +77,7 @@ class PaginaDocumentos extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PrincipalContactos()),
+                            builder: (context) => const PrincipalContactos()),
                       );
                     },
                   ),
@@ -106,29 +101,29 @@ class PaginaDocumentos extends StatelessWidget {
                   // Botón 3
                   IconButton(
                     icon: Image.asset(
-                      'assets/icons/seg2.png',
+                      'assets/icons/seg1.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     onPressed: () {
                       // Acción para el botón 3
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PaginaActividades()),
-                      );
                     },
                   ),
                   // Botón 4
                   IconButton(
                     icon: Image.asset(
-                      'assets/icons/docs1.png',
+                      'assets/icons/docs2.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
                     onPressed: () {
                       // Acción para el botón 4
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PaginaDocumentos()),
+                      );
                     },
                   ),
                 ],

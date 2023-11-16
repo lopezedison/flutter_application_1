@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/domain/entities/contact.dart';
-import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
-import 'package:flutter_application_1/presentation/screens/paginaDocumentos.dart';
-import 'package:flutter_application_1/presentation/screens/principalWhatsApp.dart';
+import 'package:flutter_application_1/presentation/screens/pagina_actividades.dart';
+import 'package:flutter_application_1/presentation/screens/pagina_documentos.dart';
+import 'package:flutter_application_1/presentation/screens/principal_whatsApp.dart';
 
 // ignore: must_be_immutable
 class PrincipalContactos extends StatefulWidget {
-  PrincipalContactos({super.key});
+  const PrincipalContactos({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PrincipalContactosState createState() => _PrincipalContactosState();
 }
 
@@ -180,7 +181,8 @@ class _PrincipalContactosState extends State<PrincipalContactos> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => PrincipalContactos()),
+                                builder: (context) =>
+                                    const PrincipalContactos()),
                           );
                         },
                       ),

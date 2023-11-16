@@ -1,8 +1,10 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/presentation/screens/foto_perfil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
 class InfoPerfil extends StatefulWidget {
   const InfoPerfil({Key? key}) : super(key: key);
@@ -17,12 +19,61 @@ class _InfoPerfilState extends State<InfoPerfil> {
 
   //Abrir la cámara y tomar una foto
   Future<void> _takePicture() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.camera);
-    if (image != null) {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.camera);
+
+    if (pickedFile != null) {
       setState(() {
-        _image = File(image.path);
+        _image = File(pickedFile.path);
       });
+
+      // Mostrar un diálogo con opciones de tomar de nuevo o elegir la foto
+      // ignore: use_build_context_synchronously
+      await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('¿Qué deseas hacer?'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Cerrar el diálogo
+                },
+                child: const Text('Tomar de nuevo'),
+              ),
+              TextButton(
+                onPressed: () {
+                  _saveImage(_image!);
+                  Navigator.of(context).pop(); // Cerrar el diálogo
+                },
+                child: const Text('Elegir esta'),
+              ),
+            ],
+          );
+        },
+      );
     }
+  }
+
+  Future<void> _saveImage(File image) async {
+    final appDocumentsDir = await getApplicationDocumentsDirectory();
+
+    // Renombrar la foto existente a "perfil1.png" si existe
+    final String existingPath = '${appDocumentsDir.path}/fotoperfil_actual.png';
+    final File existingImage = File(existingPath);
+
+    if (await existingImage.exists()) {
+      try {
+        await existingImage.rename('${appDocumentsDir.path}/perfil1.png');
+      } catch (e) {
+        print('Error al renombrar el archivo existente: $e');
+      }
+    }
+
+    // Guardar la nueva imagen en el directorio de documentos
+    fotoperfilvariable = '${appDocumentsDir.path}/fotoperfil_actual.png';
+    print(fotoperfilvariable);
+    final File newPerfil = await image.copy(fotoperfilvariable);
   }
 
   //Seleccionar una imagen de la galería
@@ -48,7 +99,7 @@ class _InfoPerfilState extends State<InfoPerfil> {
           children: <Widget>[
             _image == null
                 ? Image.asset(
-                    'assets/icons/userphoto-icon.png',
+                    fotoperfilvariable,
                     width: 150.0,
                     height: 150.0,
                     fit: BoxFit.cover,
@@ -71,6 +122,11 @@ class _InfoPerfilState extends State<InfoPerfil> {
                         onPressed: () {
                           Navigator.pop(context);
                           _takePicture();
+                          //Navigator.push(
+                          //  context,
+                          //  MaterialPageRoute(
+                          //      builder: (context) => const CameraScreen()),
+                          //);
                         },
                         child: const Text('Tomar Foto'),
                       ),
