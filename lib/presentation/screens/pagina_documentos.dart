@@ -1,14 +1,25 @@
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'dart:typed_data';
 
-class PaginaDocumentos extends StatelessWidget {
-  const PaginaDocumentos({super.key});
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
+class PaginaDocumentos extends StatefulWidget {
+  const PaginaDocumentos({Key? key}) : super(key: key);
+
+  @override
+  _PaginaDocumentosState createState() => _PaginaDocumentosState();
+}
+
+class _PaginaDocumentosState extends State<PaginaDocumentos> {
+  Uint8List? fileBytes;
+  String? pdfPath;
 
   @override
   Widget build(BuildContext context) {
     final double iconSizeButt = MediaQuery.of(context).size.width * 0.2;
-    String pdfPath = '';
 
     return Scaffold(
       appBar: AppBar(
@@ -33,23 +44,33 @@ class PaginaDocumentos extends StatelessWidget {
                     iconSize: iconSizeButt,
                     onPressed: () async {
                       try {
-                        FilePickerResult? result = await FilePicker.platform
-                            .pickFiles(
-                                type: FileType.custom,
-                                allowedExtensions: ['pdf']);
+                        FilePickerResult? result =
+                            await FilePicker.platform.pickFiles();
 
                         if (result != null) {
-                          pdfPath = result.files.single.path!;
-                          // ignore: use_build_context_synchronously
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => PDFViewer(pdfPath: pdfPath),
-                            ),
-                          );
+                          fileBytes = result.files.first.bytes;
+                          String fileName = result.files.first.name!;
+                          final storageRef =
+                              firebase_storage.FirebaseStorage.instance
+                                  .ref()
+                                  .child('uploads/$fileName');
+                          await storageRef.putData(fileBytes!);
+
+                          final downloadURL =
+                              await storageRef.getDownloadURL();
+
+                          // Almacena la referencia del archivo en Firestore
+                          await FirebaseFirestore.instance
+                              .collection('uploads')
+                              .add({'fileURL': downloadURL});
+
+                          setState(() {
+                            // Actualiza el estado del path del PDF
+                            pdfPath = downloadURL;
+                          });
                         }
                       } catch (e) {
-                        print('Error selecting or displaying PDF: $e');
+                        print('Error seleccionando o mostrando PDF: $e');
                       }
                     },
                   ),
@@ -60,12 +81,12 @@ class PaginaDocumentos extends StatelessWidget {
           Expanded(
             child: Container(
               color: const Color.fromARGB(255, 255, 255, 255),
-              child: pdfPath.isNotEmpty
-                  ? PDFView(
-                      filePath: pdfPath,
+              child: pdfPath != null
+                  ? SfPdfViewer.network(
+                      pdfPath!,
                     )
                   : const Center(
-                      child: Text('No PDF selected'),
+                      child: Text('No se seleccionó PDF'),
                     ),
             ),
           ),
@@ -80,24 +101,6 @@ class PaginaDocumentos extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class PDFViewer extends StatelessWidget {
-  final String pdfPath;
-
-  const PDFViewer({super.key, required this.pdfPath});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('PDF Viewer'),
-      ),
-      body: PDFView(
-        filePath: pdfPath,
       ),
     );
   }

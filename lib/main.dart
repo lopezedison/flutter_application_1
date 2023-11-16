@@ -4,10 +4,17 @@ import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/presentation/screens/info_perfil.dart';
 import 'package:flutter_application_1/presentation/screens/principal_contactos.dart';
 
-void main() {
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await initPathProvider();
   runApp(const MyApp());
+}
+
+Future<void> initPathProvider() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
 }
 
 class MyApp extends StatelessWidget {
@@ -76,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: "Contraseña"),
+              obscureText: true,
             ),
             const SizedBox(
                 height:
