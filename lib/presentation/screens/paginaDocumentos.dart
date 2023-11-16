@@ -1,31 +1,22 @@
-// ignore_for_file: file_names
-
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/presentation/screens/principalContactos.dart';
-import 'package:flutter_application_1/presentation/screens/principalWhatsApp.dart';
-import 'package:flutter_application_1/presentation/screens/paginaActividades.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class PaginaDocumentos extends StatelessWidget {
-  const PaginaDocumentos({super.key});
-
-  get screenHeight => null;
-  get screenWidth => null;
+  const PaginaDocumentos({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-
-    double iconSizeButt = screenWidth * 0.2;
-    double iconSizePerf = screenWidth * 0.133;
+    final double iconSizeButt = MediaQuery.of(context).size.width * 0.2;
+    String pdfPath = '';
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 151, 206, 251),
-        title: const Text('WhatsApp'),
+        title: const Text('Documentos'),
       ),
       body: Column(
         children: <Widget>[
-          // División superior para botones de navegación
           Container(
             color: const Color.fromARGB(255, 151, 206, 251),
             height: 80,
@@ -35,107 +26,76 @@ class PaginaDocumentos extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     icon: Image.asset(
-                      'assets/icons/perfil1.png',
-                      width: iconSizePerf,
-                      height: iconSizePerf,
-                    ),
-                    onPressed: () {
-                      // Acción al presionar el botón
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          // División central para mostrar contenido
-          Expanded(
-            child: Container(
-              color: const Color.fromARGB(
-                  255, 255, 255, 255), // Color de fondo de la división central
-              child: const Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[],
-                ),
-              ),
-            ),
-          ),
-          // División inferior para botones de imagen
-          Container(
-            color: const Color.fromARGB(
-                255, 255, 255, 255), // Color de fondo de la división inferior
-            height: 100, // Altura de la división inferior
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Botón 1
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/icons/contactos2.png',
-                      width: iconSizeButt,
-                      height: iconSizeButt,
-                    ),
-                    iconSize: iconSizeButt,
-                    onPressed: () {
-                      // Acción para el botón 1
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => PrincipalContactos()),
-                      );
-                    },
-                  ),
-                  // Botón 2
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/icons/watsapp2.png',
-                      width: iconSizeButt,
-                      height: iconSizeButt,
-                    ),
-                    iconSize: iconSizeButt,
-                    onPressed: () {
-                      // Acción para el botón 2
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PrincipalWhatsApp()),
-                      );
-                    },
-                  ),
-                  // Botón 3
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/icons/seg2.png',
-                      width: iconSizeButt,
-                      height: iconSizeButt,
-                    ),
-                    onPressed: () {
-                      // Acción para el botón 3
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PaginaActividades()),
-                      );
-                    },
-                  ),
-                  // Botón 4
-                  IconButton(
-                    icon: Image.asset(
                       'assets/icons/docs1.png',
                       width: iconSizeButt,
                       height: iconSizeButt,
                     ),
                     iconSize: iconSizeButt,
-                    onPressed: () {
-                      // Acción para el botón 4
+                    onPressed: () async {
+                      try {
+                        FilePickerResult? result = await FilePicker.platform
+                            .pickFiles(type: FileType.custom, allowedExtensions: ['pdf']);
+
+                        if (result != null) {
+                          pdfPath = result.files.single.path!;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PDFViewer(pdfPath: pdfPath),
+                            ),
+                          );
+                        }
+                      } catch (e) {
+                        print('Error selecting or displaying PDF: $e');
+                      }
                     },
                   ),
                 ],
               ),
             ),
           ),
+          Expanded(
+            child: Container(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              child: pdfPath.isNotEmpty
+                  ? PDFView(
+                      filePath: pdfPath,
+                    )
+                  : const Center(
+                      child: Text('No PDF selected'),
+                    ),
+            ),
+          ),
+          Container(
+            color: const Color.fromARGB(255, 255, 255, 255),
+            height: 100,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                ],
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class PDFViewer extends StatelessWidget {
+  final String pdfPath;
+
+  const PDFViewer({required this.pdfPath});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('PDF Viewer'),
+      ),
+      body: PDFView(
+        filePath: pdfPath,
       ),
     );
   }

@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: "Contraseña"),
+              obscureText: true,
             ),
             const SizedBox(
                 height:
