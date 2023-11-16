@@ -1,14 +1,15 @@
 // ignore_for_file: file_names, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/file_storage.dart';
 import 'package:flutter_application_1/presentation/screens/foto_perfil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
 class InfoPerfil extends StatefulWidget {
-  const InfoPerfil({Key? key}) : super(key: key);
-
+  InfoPerfil({Key? key}) : super(key: key);
+  final FileStorage fileStorageExample = FileStorage();
   @override
   // ignore: library_private_types_in_public_api
   _InfoPerfilState createState() => _InfoPerfilState();

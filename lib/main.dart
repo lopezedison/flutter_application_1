@@ -97,8 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const InfoPerfil()),
+                      MaterialPageRoute(builder: (context) => InfoPerfil()),
                     );
                   },
                   child: const Text('Sign Up'),
